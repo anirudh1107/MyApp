@@ -1,0 +1,48 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#EEEEEE">
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="Please Enter the Location"
+       android:layout_margin="20dp"
+       android:textSize="24sp"
+       android:textColor="@color/colorPrimary"
+       android:textStyle="bold"
+       />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Location"
+        android:layout_margin="20dp"
+        android:maxLength="200"
+        android:id="@+id/fragment_complain_location"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="8dp"
+        android:padding="30dp"
+        android:gravity="center"
+        >
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="back"
+            android:layout_margin="8dp"
+            android:id="@+id/fragment_complain_location_back_button"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="next"
+            android:layout_margin="8dp"
+            android:id="@+id/fragment_complain_location_next_button"/>
+    </LinearLayout>
+</LinearLayout>

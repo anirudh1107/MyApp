@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">RailwayApp</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string-array name="complain_categories">
+        <item>None</item>
+        <item>Masson</item>
+        <item>Plumber</item>
+        <item>Carpenter</item>
+        <item>Road Work</item>
+        <item>Periodic</item>
+        <item>Urgent</item>
+    </string-array>
+    <string-array name="masson">
+        <item>Brick Work Repair</item>
+        <item>Change of WC</item>
+        <item>Flooring Repair</item>
+        <item>Leakage in Drain Pipe</item>
+        <item>Plaster Repair</item>
+        <item>Seapage</item>
+        <item>Wall tiles repair</item>
+        <item>Miscellaneous</item>
+    </string-array>
+    <string-array name="plumber">
+        <item>Ballcock to be fixed</item>
+        <item>Basin Waste Pipe Broken</item>
+        <item>Coupling of sink is defective</item>
+        <item>Drain Jali required</item>
+        <item>Flush not working</item>
+        <item>No Water</item>
+        <item>No Water-Kitchen/Bathroom</item>
+        <item>No Water-WC</item>
+        <item>Overflow-Roof Storage Tank</item>
+        <item>Pipe Leakage(Outside House)</item>
+        <item>Repairs to water supply fittings</item>
+        <item>Urinal waste Pipe repair</item>
+    </string-array>
+    <string-array name="periodic">
+        <item>Applying dry distemper\n</item>
+        <item>Cleaning and disinfecting of water\n storage/distribution tank, water mains\n</item>
+        <item>Polishing wooden doors/windows with \nspirit polish/polish/synthetic acrylic polish\n</item>
+        <item>Premix, semi dense/dense carpetting of roads\n</item>
+        <item>White Washing</item>
+    </string-array>
+
+</resources>

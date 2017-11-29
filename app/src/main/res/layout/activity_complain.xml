@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+
+    >
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        android:id="@+id/activity_complain_fragmentcontainer"
+        >
+        <fragment
+            android:id="@+id/activity_complain_fragment"
+            android:name="com.myapp.railwayapp.Fragments.ComplainSelectModeFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            tools:layout="@layout/fragment_complaintype" />
+    </FrameLayout>
+</LinearLayout>

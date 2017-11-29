@@ -1,0 +1,100 @@
+package com.myapp.railwayapp.Activities;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.myapp.railwayapp.Infrastructure.Auth;
+import com.myapp.railwayapp.R;
+
+import org.w3c.dom.Text;
+
+
+public class LoginActivity extends BaseActivity {
+
+    private View progressBar;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+        userName = (EditText) findViewById(R.id.login_activity_username);
+        password = (EditText) findViewById(R.id.login_activity_password);
+        progressBar=findViewById(R.id.login_activity_progressbar);
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    Toast.makeText(getApplicationContext(), "Logged In As " + user.getEmail(), Toast.LENGTH_SHORT).show();
+                    application.getAuth().getUser().setLoggedIn(true);
+                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                } else {
+                    Toast.makeText(getApplicationContext(), "User Not Logged In", Toast.LENGTH_SHORT).show();
+                }
+            }
+        };
+
+    }
+
+    public void login(View v) {
+        if(userName.getText().toString().length()==0||password.getText().toString().length()==0)
+        {
+            Toast.makeText(this,"Username or Password is Empty",Toast.LENGTH_SHORT).show();
+
+        }
+        else {
+            progressBar.setVisibility(View.VISIBLE);
+            mAuth.signInWithEmailAndPassword(userName.getText().toString(), password.getText().toString())
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+
+                            if (!task.isSuccessful()) {
+                                Toast.makeText(LoginActivity.this, "Authentication failed.",
+                                        Toast.LENGTH_SHORT).show();
+                                progressBar.setVisibility(View.GONE);
+                            } else {
+                                application.getAuth().getUser().setUserName(userName.getText().toString());
+                                application.getAuth().getUser().setLoggedIn(true);
+                                SharedPreferences.Editor editor=sharedPreferences.edit();
+                                editor.putString("UserName",userName.getText().toString());
+                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                Toast.makeText(LoginActivity.this, "Login successfull.",
+                                        Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
+                        }
+                    });
+        }
+    }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+
+    @Override
+    public void onStop() {
+        super.onStop();
+    }
+
+}
+

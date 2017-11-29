@@ -1,0 +1,29 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#EEEEEE"
+    >
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Complain Using Image"
+        android:id="@+id/fragment_complain_selectmode_imagebutton"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Complain giving Details"
+        android:background="#4f9351"
+        android:id="@+id/fragment_complain_selectmode_detailsbutton"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:layout_marginTop="10dp"
+        android:id="@+id/fragment_complain_selectmode_backbutton"
+        />
+</LinearLayout>
