@@ -49,7 +49,7 @@ public class ComplainViaImageFragment extends BaseFragment implements View.OnCli
     private View imageProgressFrame;
     private View view;
     private static final int GALLERY_INTENT=1;
-    ComplainContactInformationFragment fragment;
+
     private Uri croppedUri;
 
 

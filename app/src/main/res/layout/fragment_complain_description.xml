@@ -42,8 +42,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="next"
+            android:text="submit"
             android:layout_margin="8dp"
-            android:id="@+id/fragment_complain_description_next_button"/>
+            android:id="@+id/fragment_complain_description_submit_button"/>
     </LinearLayout>
 </LinearLayout>

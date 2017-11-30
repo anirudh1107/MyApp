@@ -34,13 +34,11 @@ public class ComplainSelectModeFragment extends BaseFragment implements View.OnC
         }
          if(viewId==R.id.fragment_complain_selectmode_detailsbutton)
         {
-            callComplainFragment(new ComplainTypeFragment());
+            callComplainFragment(new ComplainDescriptionFragment());
         }
         if(viewId==R.id.fragment_complain_selectmode_backbutton)
         {
-            if(callBacks!=null)
-            callBacks.onComplainTypeClickBack();
+           callComplainFragment(new ComplainTypeFragment());
         }
     }
-
 }

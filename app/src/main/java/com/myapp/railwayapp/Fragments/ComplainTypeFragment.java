@@ -47,12 +47,13 @@ public class ComplainTypeFragment extends BaseFragment implements View.OnClickLi
         int viewId=v.getId();
         if(viewId==R.id.activity_complain_back_button)
         {
-           callComplainFragment(new ComplainSelectModeFragment());
+            if(callBacks!=null)
+                callBacks.onComplainTypeClickBack();
         }
         else if(viewId==R.id.activity_complain_nextbutton) {
 
               if(!complainType.equals("None"))
-                callComplainFragment(new ComplainLocationFragment());
+                callComplainFragment(new ComplainSelectModeFragment());
             else
                 Toast.makeText(getActivity(),"No Item Selected",Toast.LENGTH_SHORT).show();
 
@@ -105,6 +106,5 @@ public class ComplainTypeFragment extends BaseFragment implements View.OnClickLi
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-
     }
 }
