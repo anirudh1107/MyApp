@@ -43,7 +43,6 @@ public class ComplainActivity extends BaseAuthenticatedActivity implements Compl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complain);
-
     }
     public String getUid()
     {
@@ -108,7 +107,7 @@ public class ComplainActivity extends BaseAuthenticatedActivity implements Compl
                     finish();
                 }
             });
-
+//lol
         }
         else
             Toast.makeText(getApplicationContext(),"No Image Uri Found",Toast.LENGTH_SHORT).show();
