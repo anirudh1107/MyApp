@@ -1,4 +1,4 @@
-package com.myapp.railwayapp.Fragments;
+package com.myapp.railwayapp.Others;
 
 /**
  * Created by naman on 11/9/17.

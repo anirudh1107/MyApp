@@ -44,6 +44,7 @@ public class ComplainActivity extends BaseAuthenticatedActivity implements Compl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complain);
     }
+
     public String getUid()
     {
         return mAuth.getCurrentUser().getUid();
