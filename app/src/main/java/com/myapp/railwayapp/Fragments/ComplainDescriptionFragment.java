@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.myapp.railwayapp.Activities.ComplainActivity;
+import com.myapp.railwayapp.Activities.complainStr;
 import com.myapp.railwayapp.Activities.userDetail;
 import com.myapp.railwayapp.Others.ComplainInformation;
 import com.myapp.railwayapp.R;
@@ -92,6 +93,7 @@ public class ComplainDescriptionFragment extends BaseFragment implements View.On
         FirebaseDatabase mDataBase;
         DatabaseReference mRefComplain;
         DatabaseReference userRef;
+        DatabaseReference comId;
 
         public SetComplainToDatabase(String complainType,
                                      String complainDescription, int status,
@@ -103,6 +105,7 @@ public class ComplainDescriptionFragment extends BaseFragment implements View.On
             mDataBase=FirebaseDatabase.getInstance();
             mRefComplain=mDataBase.getReference("Complain");
             userRef = mDataBase.getReference("User1");
+            comId=mDataBase.getReference("CID");
             this.status=status;
             this.uid=uid;
             this.complainTypeDetail=complainTypeDetail;
@@ -149,6 +152,41 @@ public class ComplainDescriptionFragment extends BaseFragment implements View.On
                 }
             });
 
+            comId.addChildEventListener(new ChildEventListener() {
+                @Override
+                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                    complainStr myCom=dataSnapshot.getValue(complainStr.class);
+                    Log.v("This is prob",dataSnapshot.getKey());
+                    if(complainType.equals(dataSnapshot.getKey()))
+                    {
+                        int nc= myCom.getC()+1;
+                        String com=myCom.getStr()+nc;
+                        complainNumber.child("cid").setValue(com);
+                        comId.child(dataSnapshot.getKey()).child("C").setValue(nc);
+
+                    }
+                }
+
+                @Override
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
 
         }
 

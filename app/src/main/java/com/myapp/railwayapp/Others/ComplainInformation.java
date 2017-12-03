@@ -15,6 +15,7 @@ public class ComplainInformation {
         this.complainTypeDetail = complainTypeDetail;
     }
 
+
     public String getComplainTypeDetail() {
 
         return complainTypeDetail;
