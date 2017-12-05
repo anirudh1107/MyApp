@@ -57,7 +57,7 @@ public class myAdapter extends ArrayAdapter<word> {
         ImageView longimage=listView.findViewById(R.id.image_i);
         LinearLayout imageview=listView.findViewById(R.id.image_view);
 
-        id.setText(current.getKey());
+        id.setText(current.getCid());
         complaint.setText(current.getType());
         if(current.getStatus()==0)
             topStatus.setText("Pending");
@@ -65,7 +65,7 @@ public class myAdapter extends ArrayAdapter<word> {
             topStatus.setText("In Progress");
         else
             topStatus.setText("Completed");
-        longComplaintId.setText(current.getKey());
+        longComplaintId.setText(current.getCid());
         longComplaintType.setText(current.getType());
         longNumber.setText(current.getMobNumber());
         longSubtype.setText(current.getTypeDetail());

@@ -13,12 +13,13 @@ public class word {
     private String Uid;
     private String key;
     private String TypeDetail;
+    private String cid;
     private String imageUID;
 
     public word() {
     }
 
-    public word(String description, String location, String mobNumber,int Status, String type,String uid,String typeDetail,String imageuid) {
+    public word(String description, String location, String mobNumber,int Status, String type,String uid,String typeDetail,String Cid,String imageuid) {
         Description = description;
         Location = location;
         MobNumber = mobNumber;
@@ -26,6 +27,7 @@ public class word {
         Type = type;
         Uid=uid;
         TypeDetail=typeDetail;
+        cid=Cid;
         imageUID=imageuid;
 
     }
@@ -92,6 +94,14 @@ public class word {
 
     public void setTypeDetail(String typeDetail) {
         TypeDetail = typeDetail;
+    }
+
+    public String getCid() {
+        return cid;
+    }
+
+    public void setCid(String cid) {
+        this.cid = cid;
     }
 
     public String getImageUID() {
