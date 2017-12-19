@@ -27,7 +27,7 @@ import com.myapp.railwayapp.Activities.ComplainActivity;
 import com.myapp.railwayapp.R;
 import com.soundcloud.android.crop.Crop;
 import com.soundcloud.android.crop.CropImageActivity;
-import com.squareup.picasso.Picasso;
+
 
 import java.io.File;
 import java.util.ArrayList;
@@ -91,7 +91,7 @@ public class ComplainViaImageFragment extends BaseFragment implements View.OnCli
         }
     }
     private void onSubmit() {
-        callBacks.onImageSubmit();
+        callBacks.onImageSubmit(complainType,complainTypeDetail);
     }
     void changeComplainImage()
     {

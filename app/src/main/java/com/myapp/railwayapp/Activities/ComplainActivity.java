@@ -75,7 +75,7 @@ public class ComplainActivity extends BaseAuthenticatedActivity implements Compl
     }
 // I am in
     @Override
-    public void onImageSubmit() {
+    public void onImageSubmit(final String complainType, final String complainTypeDetail) {
         mStorage= FirebaseStorage.getInstance().getReference();
         pDialog=new ProgressDialog(this);
         Calendar c = Calendar.getInstance();
@@ -86,7 +86,6 @@ public class ComplainActivity extends BaseAuthenticatedActivity implements Compl
         Uri uri=Uri.fromFile(tempOutputFile);
         if(uri!=null) {
             StorageReference filepath = mStorage.child("Photos").child(uri.getLastPathSegment()+formattedDate);
-
             filepath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -96,12 +95,12 @@ public class ComplainActivity extends BaseAuthenticatedActivity implements Compl
                     database=FirebaseDatabase.getInstance();
                     reference=database.getReference().child("Complain");
                     DatabaseReference complainNumber=reference.push();
-                    complainNumber.child("Type").setValue("");
+                    complainNumber.child("Type").setValue(complainType);
+                    complainNumber.child("TypeDetail").setValue(complainTypeDetail);
                     complainNumber.child("Location").setValue("");
                     complainNumber.child("Description").setValue("");
                     complainNumber.child("MobNumber").setValue("");
                     complainNumber.child("Status").setValue(0);
-                    complainNumber.child("TypeDetail").setValue("");
                     complainNumber.child("Uid").setValue(mAuth.getCurrentUser().getUid());
                     complainNumber.child("imageUID").setValue(taskSnapshot.getDownloadUrl().toString());
                     setResult(RESULT_OK);
@@ -131,7 +130,6 @@ public class ComplainActivity extends BaseAuthenticatedActivity implements Compl
         else if(requestCode==Crop.REQUEST_CROP)
         {
             //todo send tempfileuri to server as new Avatar
-            Log.e("f","LOL");
             complainImage.setImageResource(0);
             complainImage.setImageURI(Uri.fromFile(tempOutputFile));
 

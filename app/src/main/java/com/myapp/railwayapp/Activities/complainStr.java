@@ -1,9 +1,5 @@
 package com.myapp.railwayapp.Activities;
 
-/**
- * Created by dellpc on 12/3/2017.
- */
-
 public class complainStr {
 
     private String Str;

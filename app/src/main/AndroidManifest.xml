@@ -28,8 +28,6 @@
 
     <activity android:name=".Activities.complaint_listner"/>
 
-    <activity android:name=".Activities.searchActivity"/>
-
     <activity android:name="com.soundcloud.android.crop.CropImageActivity"/>
 
 </application>

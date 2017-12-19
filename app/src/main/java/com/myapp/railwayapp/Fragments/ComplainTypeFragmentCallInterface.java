@@ -9,5 +9,5 @@ public interface ComplainTypeFragmentCallInterface {
     void onComplainTypeClickBack();
     void onComplainTypeClickSubmit();
     void getImageCrop(Uri outputFile, Uri tempFileUri,File tempOutputfile,int id);
-    void onImageSubmit();
+    void onImageSubmit(String complainType, String complainTypeDetail);
 }
