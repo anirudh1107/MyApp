@@ -27,7 +27,8 @@ import com.myapp.railwayapp.Fragments.ComplainTypeFragmentCallInterface;
 
 import com.myapp.railwayapp.Infrastructure.Auth;
 import com.myapp.railwayapp.R;
-import com.soundcloud.android.crop.Crop;
+import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -44,6 +45,9 @@ public class ComplainActivity extends BaseAuthenticatedActivity implements Compl
     private File tempOutputFile;
     private Intent data;
     userDetail uDetail;
+    private CropImageView cropImageView;
+    private final int CROP_CODE=150;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,11 +76,10 @@ public class ComplainActivity extends BaseAuthenticatedActivity implements Compl
     @Override
     public void getImageCrop(Uri outputFile, Uri tempFileUri,File tempOutputFile,int id) {
         complainImage=findViewById(id);
+
         this.tempOutputFile=tempOutputFile;
-        new Crop(outputFile)
-                .asSquare()
-                .output(tempFileUri)
-                .start(this);
+        CropImage.activity(outputFile).start(this);
+
     }
 // I am in
     @Override
@@ -155,21 +158,20 @@ public class ComplainActivity extends BaseAuthenticatedActivity implements Compl
         String phoneNumber=null;
         String userName=null;
     }
-    public void onActivityResult(int requestCode,int resultCode,Intent data)
-    {
-        if(resultCode!=RESULT_OK)
-        {
-            return;
-        }
-        else if(requestCode==Crop.REQUEST_CROP)
-        {
-            //todo send tempfileuri to server as new Avatar
-            complainImage.setImageResource(0);
-            complainImage.setImageURI(Uri.fromFile(tempOutputFile));
-
-
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            if (resultCode == RESULT_OK) {
+                Uri resultUri = result.getUri();
+                complainImage.setImageResource(0);
+                complainImage.setImageURI(resultUri);
+            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+                Exception error = result.getError();
+            }
         }
     }
+
 }
 
 

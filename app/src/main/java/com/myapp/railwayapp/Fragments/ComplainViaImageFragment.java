@@ -25,8 +25,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.myapp.railwayapp.Activities.ComplainActivity;
 import com.myapp.railwayapp.R;
-import com.soundcloud.android.crop.Crop;
-import com.soundcloud.android.crop.CropImageActivity;
+
 
 
 import java.io.File;
@@ -136,14 +135,6 @@ public class ComplainViaImageFragment extends BaseFragment implements View.OnCli
             callBacks.getImageCrop(outputFile,tempFileUri,tempOutputFile,R.id.fragment_via_image_image);
 
 
-        }
-        else if(requestCode==Crop.REQUEST_CROP)
-        {
-            //todo send tempfileuri to server as new Avatar
-            complainImage.setImageResource(0);
-            Log.e("yess","coming");
-            croppedUri=Uri.fromFile(tempOutputFile);
-            complainImage.setImageURI(Uri.fromFile(tempOutputFile));
         }
 
     }
