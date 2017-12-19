@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.myapp.railwayapp.R;
 
-public class registration extends BaseActivity {
+public class registration extends AppCompatActivity {
 
     private EditText user;
     private EditText password;
@@ -33,8 +33,15 @@ public class registration extends BaseActivity {
         user=(EditText)findViewById(R.id.newuser);
         add=(Button)findViewById(R.id.add1);
         password=(EditText)findViewById(R.id.pass);
+        mAuth=FirebaseAuth.getInstance();
         progressDialog=new ProgressDialog(this);
 
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                registerUser();
+            }
+        });
 
     }
 
@@ -45,13 +52,11 @@ public class registration extends BaseActivity {
 
         if(TextUtils.isEmpty(email))
         {
-
             Toast.makeText(this,"please give email address",Toast.LENGTH_SHORT).show();
         }
         if(TextUtils.isEmpty(pass))
         {
             Toast.makeText(this,"please enter the password",Toast.LENGTH_SHORT).show();
-
         }
         progressDialog.setMessage("REGISTERING......");
 

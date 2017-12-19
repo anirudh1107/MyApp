@@ -13,7 +13,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.myapp.railwayapp.R;
 
-public class DetailActivity extends BaseActivity {
+public class DetailActivity extends AppCompatActivity {
     EditText newName;
     EditText newAdd;
     EditText newMob;
