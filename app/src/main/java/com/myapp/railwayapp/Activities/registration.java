@@ -28,7 +28,8 @@ public class registration extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_registration);
+
         user=(EditText)findViewById(R.id.newuser);
         add=(Button)findViewById(R.id.add1);
         password=(EditText)findViewById(R.id.pass);
