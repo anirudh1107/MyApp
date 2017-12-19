@@ -27,7 +27,8 @@
     <activity android:name=".Activities.ComplainActivity"/>
 
     <activity android:name=".Activities.complaint_listner"/>
-
+    <activity android:name=".Activities.registration"></activity>
+    <activity android:name=".Activities.DetailActivity"></activity>
     <activity android:name="com.soundcloud.android.crop.CropImageActivity"/>
 
 </application>
