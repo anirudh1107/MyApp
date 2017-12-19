@@ -15,6 +15,9 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -37,8 +40,10 @@ public class ComplainActivity extends BaseAuthenticatedActivity implements Compl
     private View imageProgressFrame;
     private FirebaseDatabase database;
     private DatabaseReference reference;
+    private DatabaseReference userReference;
     private File tempOutputFile;
     private Intent data;
+    userDetail uDetail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,15 +99,44 @@ public class ComplainActivity extends BaseAuthenticatedActivity implements Compl
                     mAuth= FirebaseAuth.getInstance();
                     database=FirebaseDatabase.getInstance();
                     reference=database.getReference().child("Complain");
-                    DatabaseReference complainNumber=reference.push();
+                    userReference=database.getReference().child("User");
+                    final DatabaseReference complainNumber=reference.push();
                     complainNumber.child("Type").setValue(complainType);
                     complainNumber.child("TypeDetail").setValue(complainTypeDetail);
-                    complainNumber.child("Location").setValue("");
                     complainNumber.child("Description").setValue("");
-                    complainNumber.child("MobNumber").setValue("");
                     complainNumber.child("Status").setValue(0);
                     complainNumber.child("Uid").setValue(mAuth.getCurrentUser().getUid());
                     complainNumber.child("imageUID").setValue(taskSnapshot.getDownloadUrl().toString());
+                    userReference.addChildEventListener(new ChildEventListener() {
+                        @Override
+                        public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                            if(dataSnapshot.getKey().equals(getUid())) {
+                                uDetail = dataSnapshot.getValue(userDetail.class);
+                                complainNumber.child("Location").setValue(uDetail.getAddress());
+                                complainNumber.child("Mobile Number").setValue(uDetail.getMobile());
+                            }
+                        }
+
+                        @Override
+                        public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                        }
+
+                        @Override
+                        public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                        }
+
+                        @Override
+                        public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
                     setResult(RESULT_OK);
                     finish();
                 }
