@@ -71,6 +71,11 @@ public class LoginActivity extends BaseActivity {
         }
     }
 
+    public void sign(View v)
+    {
+        startActivity(new Intent(LoginActivity.this,registration.class));
+    }
+
 
     @Override
     public void onStart() {
