@@ -104,7 +104,7 @@ public class ComplainDescriptionFragment extends BaseFragment implements View.On
             this.complainDescription=complainDescription;
             mDataBase=FirebaseDatabase.getInstance();
             mRefComplain=mDataBase.getReference("Complain");
-            userRef = mDataBase.getReference("User1");
+            userRef = mDataBase.getReference("User");
             comId=mDataBase.getReference("CID");
             this.status=status;
             this.uid=uid;
