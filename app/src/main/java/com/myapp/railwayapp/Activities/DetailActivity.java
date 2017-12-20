@@ -13,14 +13,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.myapp.railwayapp.R;
 
-public class DetailActivity extends AppCompatActivity {
+public class DetailActivity extends BaseAuthenticatedActivity {
     EditText newName;
     EditText newAdd;
     EditText newMob;
     Button newSub;
     FirebaseDatabase database;
     DatabaseReference myRef;
-    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

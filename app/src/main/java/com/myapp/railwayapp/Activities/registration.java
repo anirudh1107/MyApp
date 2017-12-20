@@ -38,7 +38,8 @@ public class registration extends AppCompatActivity {
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 registerUser();
             }
         });
@@ -96,7 +97,7 @@ public class registration extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Intent i=new Intent(registration.this,DetailActivity.class);
+                            Intent i=new Intent(registration.this,MainActivity.class);
                             startActivity(i);
                         } else {
                             // If sign in fails, display a message to the user.

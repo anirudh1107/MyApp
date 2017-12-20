@@ -21,11 +21,13 @@ public class MainActivity extends BaseAuthenticatedActivity implements View.OnCl
         findViewById(R.id.activity_main_complainbutton).setOnClickListener(this);
         findViewById(R.id.activity_main_statusbutton).setOnClickListener(this);
         findViewById(R.id.logoutbutton).setOnClickListener(this);
+        findViewById(R.id.activity_main_profilebutton).setOnClickListener(this);
 
     }
     @Override
     public void onClick(View view) {
         int viewId=view.getId();
+
         if(viewId==R.id.activity_main_complainbutton)
         {
             startActivityForResult(new Intent(this,ComplainActivity.class),COMPLAIN_REQUEST_CODE);
@@ -47,6 +49,11 @@ public class MainActivity extends BaseAuthenticatedActivity implements View.OnCl
             startActivity(new Intent(this,LoginActivity.class));
 
             finish();
+        }
+        if(viewId==R.id.activity_main_profilebutton)
+        {
+            Intent i =new Intent(this,DetailActivity.class);
+            startActivity(i);
         }
     }
 
