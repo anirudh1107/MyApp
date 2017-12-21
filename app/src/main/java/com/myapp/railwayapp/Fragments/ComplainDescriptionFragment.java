@@ -156,7 +156,6 @@ public class ComplainDescriptionFragment extends BaseFragment implements View.On
                 @Override
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                     complainStr myCom=dataSnapshot.getValue(complainStr.class);
-                    Log.v("This is prob",dataSnapshot.getKey());
                     if(complainType.equals(dataSnapshot.getKey()))
                     {
                         int nc= myCom.getC()+1;

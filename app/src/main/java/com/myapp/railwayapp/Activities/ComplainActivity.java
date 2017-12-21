@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -20,6 +21,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -42,6 +44,8 @@ public class ComplainActivity extends BaseAuthenticatedActivity implements Compl
     private FirebaseDatabase database;
     private DatabaseReference reference;
     private DatabaseReference userReference;
+    private DatabaseReference check;
+    private DatabaseReference comId;
     private File tempOutputFile;
     private Intent data;
     userDetail uDetail;
@@ -52,6 +56,28 @@ public class ComplainActivity extends BaseAuthenticatedActivity implements Compl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complain);
+
+        database=FirebaseDatabase.getInstance();
+        check=database.getReference().child("User");
+
+        check.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.hasChild(mAuth.getCurrentUser().getUid()))
+                    Toast.makeText(ComplainActivity.this,"you are registered by user",Toast.LENGTH_SHORT).show();
+                else
+                {
+                    Toast.makeText(ComplainActivity.this,"not yet registered by user",Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(ComplainActivity.this,MainActivity.class));
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     public String getUid()
@@ -103,6 +129,7 @@ public class ComplainActivity extends BaseAuthenticatedActivity implements Compl
                     database=FirebaseDatabase.getInstance();
                     reference=database.getReference().child("Complain");
                     userReference=database.getReference().child("User");
+                    comId=database.getReference("CID");
                     final DatabaseReference complainNumber=reference.push();
                     complainNumber.child("Type").setValue(complainType);
                     complainNumber.child("TypeDetail").setValue(complainTypeDetail);
@@ -110,6 +137,42 @@ public class ComplainActivity extends BaseAuthenticatedActivity implements Compl
                     complainNumber.child("Status").setValue(0);
                     complainNumber.child("Uid").setValue(mAuth.getCurrentUser().getUid());
                     complainNumber.child("imageUID").setValue(taskSnapshot.getDownloadUrl().toString());
+
+                    comId.addChildEventListener(new ChildEventListener() {
+                        @Override
+                        public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                            complainStr myCom=dataSnapshot.getValue(complainStr.class);
+                            if(complainType.equals(dataSnapshot.getKey()))
+                            {
+                                int nc= myCom.getC()+1;
+                                String com=myCom.getStr()+nc;
+                                complainNumber.child("cid").setValue(com);
+                                comId.child(dataSnapshot.getKey()).child("C").setValue(nc);
+
+                            }
+                        }
+
+                        @Override
+                        public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                        }
+
+                        @Override
+                        public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                        }
+
+                        @Override
+                        public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+
                     userReference.addChildEventListener(new ChildEventListener() {
                         @Override
                         public void onChildAdded(DataSnapshot dataSnapshot, String s) {

@@ -56,7 +56,6 @@ public class DetailActivity extends BaseAuthenticatedActivity {
                     currentUser.child("Username").setValue(newName.getText().toString());
                     currentUser.child("Address").setValue(newAdd.getText().toString());
                     currentUser.child("Mobile").setValue(newMob.getText().toString());
-                    mAuth.signOut();
                     Intent i=new Intent(DetailActivity.this,MainActivity.class);
                     startActivity(i);
                     finish();
