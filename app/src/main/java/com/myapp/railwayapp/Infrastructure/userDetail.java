@@ -1,4 +1,4 @@
-package com.myapp.railwayapp.Activities;
+package com.myapp.railwayapp.Infrastructure;
 
 /**
  * Created by dellpc on 12/1/2017.

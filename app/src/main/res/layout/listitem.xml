@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:id="@+id/list_item_wrap"
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,6 +51,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginTop="16dp"
+        android:visibility="visible"
         >
         <LinearLayout
             android:layout_width="match_parent"
@@ -165,13 +167,7 @@
                 android:textAlignment="textStart"
                 android:gravity="start" />
 
-            <Button
-                android:layout_width="0dp"
-                android:id="@+id/hide"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="HIDE"
-                />
+
 
         </LinearLayout>
         <LinearLayout
@@ -179,18 +175,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:visibility="gone"
             >
-            <ImageView
-                android:id="@+id/image_i"
-                android:layout_width="match_parent"
-                android:layout_height="100dp" />
+
+                <ImageView
+                    android:id="@+id/image_i"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_launcher_round"
+                    android:layout_gravity="center"
+                    />
+
+
 
         </LinearLayout>
 
 
     </LinearLayout>
 
-
-
-
+    <Button
+        android:layout_width="wrap_content"
+        android:id="@+id/send_feedback_button"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Feedback"
+        android:layout_gravity="center"
+        />
 </LinearLayout>
