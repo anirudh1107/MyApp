@@ -1,11 +1,13 @@
 package com.myapp.railwayapp.Activities;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -43,12 +45,20 @@ public class FeedbackActivity extends BaseAuthenticatedActivity implements View.
             String customerMob=getIntent().getStringExtra(CUSTOMER_MOBILE);
             String feedbackDetails=feedbackText.getText().toString();
             view.startAnimation(animAlpha);
+            if(!feedbackDetails.isEmpty()) {
+
             mDatabase=FirebaseDatabase.getInstance();
             mRef=mDatabase.getReference("UserFeedback");
-          //ToDO: change firebase reference i.e customer mob u3
-            mRef.child(mAuth.getCurrentUser().getUid()).child("123").setValue(feedbackDetails);
-            setResult(RESULT_OK);
-            finish();
+                //ToDO: change firebase reference i.e customer complain id
+                mRef.child(mAuth.getCurrentUser().getUid()).child("123").setValue(feedbackDetails);
+                setResult(RESULT_OK);
+                finish();
+
+            }
+            else
+            {
+                Toast.makeText(this,"No text entered",Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }
