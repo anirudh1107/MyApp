@@ -55,4 +55,11 @@
         <item>White Washing</item>
     </string-array>
 
+    <string-array name="locality">
+        <item>NONE</item>
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+    </string-array>
 </resources>

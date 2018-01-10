@@ -125,6 +125,7 @@ public class ComplainDescriptionFragment extends BaseFragment implements View.On
                         myUser=dataSnapshot.getValue(userDetail.class);
                         complainNumber.child("Location").setValue(myUser.getAddress());
                         complainNumber.child("MobNumber").setValue(myUser.getMobile());
+                        complainNumber.child("Locality").setValue(myUser.getLocality());
                     }
                 }
 

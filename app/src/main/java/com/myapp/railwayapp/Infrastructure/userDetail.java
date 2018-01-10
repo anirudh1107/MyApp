@@ -8,15 +8,25 @@ public class userDetail {
     private String Username;
     private String Mobile;
     private String Address;
+    private String Locality;
 
     public userDetail() {
 
     }
 
-    public userDetail(String username, String mobile, String address) {
+    public userDetail(String username, String mobile, String address, String locality) {
         Username = username;
         Mobile = mobile;
         Address = address;
+        Locality = locality;
+    }
+
+    public String getLocality() {
+        return Locality;
+    }
+
+    public void setLocality(String locality) {
+        Locality = locality;
     }
 
     public String getUsername() {

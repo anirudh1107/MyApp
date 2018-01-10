@@ -133,7 +133,7 @@ public class ComplainActivity extends BaseAuthenticatedActivity implements Compl
                         @Override
                         public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                             complainStr myCom=dataSnapshot.getValue(complainStr.class);
-                            if(complainType.equals(dataSnapshot.getKey()))
+                            if(complainType.equalsIgnoreCase(dataSnapshot.getKey()))
                             {
                                 int nc= myCom.getC()+1;
                                 String com=myCom.getStr()+nc;
@@ -171,6 +171,7 @@ public class ComplainActivity extends BaseAuthenticatedActivity implements Compl
                                 uDetail = dataSnapshot.getValue(userDetail.class);
                                 complainNumber.child("Location").setValue(uDetail.getAddress());
                                 complainNumber.child("Mobile Number").setValue(uDetail.getMobile());
+                                complainNumber.child("Locality").setValue(uDetail.getLocality());
                             }
                         }
 
