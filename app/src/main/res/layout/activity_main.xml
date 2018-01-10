@@ -14,15 +14,23 @@
     android:id="@+id/linear_layout_railwayimg">
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="420dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_railway" />
     </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Complain"
-        android:background="#454ff0"
+        android:background="@drawable/home_page_button_layout"
         android:layout_marginTop="30dp"
         android:id="@+id/activity_main_complainbutton"
         />
@@ -30,6 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:background="@drawable/home_page_button_layout"
         android:text="Status"
         android:id="@+id/activity_main_statusbutton"
         />
@@ -37,24 +46,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="profile"
+        android:background="@drawable/home_page_button_layout"
         android:layout_marginTop="20dp"
         android:id="@+id/activity_main_profilebutton"
+        />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Feedback"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/home_page_button_layout"
+            android:id="@+id/activity_main_feedback_button"
         />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="LogOut"
         android:layout_marginTop="20dp"
+        android:background="@drawable/home_page_button_layout"
         android:id="@+id/logoutbutton"
         />
 
 
-    <TextView
-        android:layout_marginTop="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/user"
-        />
-
+    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

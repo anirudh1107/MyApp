@@ -39,7 +39,6 @@ public class ComplainActivity extends BaseAuthenticatedActivity implements Compl
     private DatabaseReference check;
     private DatabaseReference comId;
     private File tempOutputFile;
-    private Intent data;
     userDetail uDetail;
     private CropImageView cropImageView;
     private final int CROP_CODE=150;

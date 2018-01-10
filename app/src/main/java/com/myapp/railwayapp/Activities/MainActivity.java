@@ -13,6 +13,7 @@ import com.myapp.railwayapp.R;
 
 public class MainActivity extends BaseAuthenticatedActivity implements View.OnClickListener {
     private static final int COMPLAIN_REQUEST_CODE = 1;
+    private static final int FEEDBACK_REQUEST = 132;
     RelativeLayout complain_button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,7 @@ public class MainActivity extends BaseAuthenticatedActivity implements View.OnCl
         findViewById(R.id.activity_main_statusbutton).setOnClickListener(this);
         findViewById(R.id.logoutbutton).setOnClickListener(this);
         findViewById(R.id.activity_main_profilebutton).setOnClickListener(this);
+        findViewById(R.id.activity_main_feedback_button).setOnClickListener(this);
 
     }
     @Override
@@ -55,6 +57,11 @@ public class MainActivity extends BaseAuthenticatedActivity implements View.OnCl
             Intent i =new Intent(this,DetailActivity.class);
             startActivity(i);
         }
+        if(viewId==R.id.activity_main_feedback_button)
+        {
+            Intent intent=new Intent(this,FeedbackActivity.class);
+            startActivityForResult(intent,FEEDBACK_REQUEST);
+        }
     }
 
     @Override
@@ -73,6 +80,18 @@ public class MainActivity extends BaseAuthenticatedActivity implements View.OnCl
 
                     Toast.makeText(this,"Complain Submitted",Toast.LENGTH_SHORT).show();
                 }
+            }
+
+        }
+        if(requestCode==FEEDBACK_REQUEST)
+        {
+            if(resultCode==RESULT_OK)
+            {
+                Toast.makeText(this,"Feedback Successfully Submitted",Toast.LENGTH_SHORT).show();
+            }
+            else
+            {
+                Toast.makeText(this,"Feedback failed to submit",Toast.LENGTH_SHORT).show();
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
