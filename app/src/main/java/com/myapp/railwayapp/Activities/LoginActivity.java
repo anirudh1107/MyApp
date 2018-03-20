@@ -1,6 +1,7 @@
 package com.myapp.railwayapp.Activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
@@ -12,6 +13,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.myapp.railwayapp.R;
 
 
@@ -22,6 +28,8 @@ public class LoginActivity extends BaseActivity {
     private TextInputLayout usernameWrapper;
     private TextInputLayout passwordWrapper;
 
+    private SharedPreferences sharedPreferences;
+    private DatabaseReference check;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +77,30 @@ public class LoginActivity extends BaseActivity {
                                 progressBar.setVisibility(View.GONE);
                             } else {
                                 application.getAuth().getUser().setLoggedIn(true);
+                                sharedPreferences=getSharedPreferences("loginInfo",MODE_PRIVATE);
+                                final SharedPreferences.Editor editor=sharedPreferences.edit();
+
+                                check= FirebaseDatabase.getInstance().getReference().child("User");
+                                check.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                                        if(dataSnapshot.hasChild(mAuth.getCurrentUser().getUid()))
+                                        {
+                                            editor.putBoolean("status",true);
+                                            editor.apply();
+                                        }
+                                        else
+                                        {
+                                            Toast.makeText(LoginActivity.this,"not yet registered by user",Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
                                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                 Toast.makeText(LoginActivity.this, "Login successfull.",
                                         Toast.LENGTH_SHORT).show();

@@ -19,7 +19,6 @@ import com.myapp.railwayapp.R;
 public class MainActivity extends BaseAuthenticatedActivity implements View.OnClickListener {
     private static final int COMPLAIN_REQUEST_CODE = 1;
     private SharedPreferences sharedPreferences;
-    private DatabaseReference check;
     private static final int FEEDBACK_REQUEST = 132;
     RelativeLayout complain_button;
     @Override
@@ -27,29 +26,8 @@ public class MainActivity extends BaseAuthenticatedActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         sharedPreferences=getSharedPreferences("loginInfo",MODE_PRIVATE);
-        final SharedPreferences.Editor editor=sharedPreferences.edit();
-        check=FirebaseDatabase.getInstance().getReference().child("User");
-        check.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                if(dataSnapshot.hasChild(mAuth.getCurrentUser().getUid()))
-                {
-                    editor.putBoolean("status",true);
-                    editor.apply();
-                }
-                else
-                {
-                    Toast.makeText(MainActivity.this,"not yet registered by user",Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
         findViewById(R.id.activity_main_complainbutton).setOnClickListener(this);
         findViewById(R.id.activity_main_statusbutton).setOnClickListener(this);
         findViewById(R.id.logoutbutton).setOnClickListener(this);
