@@ -3,6 +3,7 @@ package com.myapp.railwayapp.Activities;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,6 +19,8 @@ import com.myapp.railwayapp.R;
 public class LoginActivity extends BaseActivity {
 
     private View progressBar;
+    private TextInputLayout usernameWrapper;
+    private TextInputLayout passwordWrapper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,11 @@ public class LoginActivity extends BaseActivity {
         setContentView(R.layout.activity_login);
         userName = (EditText) findViewById(R.id.login_activity_username);
         password = (EditText) findViewById(R.id.login_activity_password);
+        usernameWrapper=findViewById(R.id.login_activity_username_wrapper);
+        passwordWrapper=findViewById(R.id.login_activity_password_wrapper);
+        usernameWrapper.setHint("ENTER USERNAME");
+        passwordWrapper.setHint("ENTER PASSWORD");
+        passwordWrapper.setPasswordVisibilityToggleEnabled(true);
         progressBar=findViewById(R.id.login_activity_progressbar);
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override

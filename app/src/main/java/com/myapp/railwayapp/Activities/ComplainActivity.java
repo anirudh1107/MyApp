@@ -48,28 +48,8 @@ public class ComplainActivity extends BaseAuthenticatedActivity implements Compl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complain);
-
         database=FirebaseDatabase.getInstance();
-        check=database.getReference().child("User");
 
-        check.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                if(dataSnapshot.hasChild(mAuth.getCurrentUser().getUid()))
-                    Toast.makeText(ComplainActivity.this,"you are registered by user",Toast.LENGTH_SHORT).show();
-                else
-                {
-                    Toast.makeText(ComplainActivity.this,"not yet registered by user",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(ComplainActivity.this,MainActivity.class));
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
     }
 
     public String getUid()

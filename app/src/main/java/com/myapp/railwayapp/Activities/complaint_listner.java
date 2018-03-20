@@ -44,25 +44,6 @@ public class complaint_listner extends BaseAuthenticatedActivity {
         mAuth=FirebaseAuth.getInstance();
         mDatabase=FirebaseDatabase.getInstance();
         myRef=mDatabase.getReference().child("Complain");
-        check=mDatabase.getReference().child("User");
-
-        check.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.hasChild(mAuth.getCurrentUser().getUid()))
-                    Toast.makeText(complaint_listner.this,"you are registered by user",Toast.LENGTH_SHORT).show();
-                else
-                {
-                    Toast.makeText(complaint_listner.this,"not yet registered by user",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(complaint_listner.this,MainActivity.class));
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
 
         list1=new ArrayList<word>();
         list_View=findViewById(R.id.list_view1);

@@ -7,21 +7,36 @@
     android:padding="30dp"
     >
 
-    <EditText
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Username"
-        android:id="@+id/login_activity_username"
-        android:inputType="textEmailAddress"
-        />
+        android:id="@+id/login_activity_username_wrapper"
+        >
 
-    <EditText
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/login_activity_username"
+            android:inputType="textEmailAddress"
+            />
+
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Password"
-        android:id="@+id/login_activity_password"
-        android:inputType="textPassword"
-        />
+        android:id="@+id/login_activity_password_wrapper"
+        >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/login_activity_password"
+            android:inputType="textPassword"
+            />
+
+    </android.support.design.widget.TextInputLayout>
 
         <Button
             android:layout_width="match_parent"
