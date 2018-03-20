@@ -18,7 +18,6 @@ import com.myapp.railwayapp.R;
 
 public class MainActivity extends BaseAuthenticatedActivity implements View.OnClickListener {
     private static final int COMPLAIN_REQUEST_CODE = 1;
-    private RelativeLayout complain_button;
     private SharedPreferences sharedPreferences;
     private DatabaseReference check;
     private static final int FEEDBACK_REQUEST = 132;
