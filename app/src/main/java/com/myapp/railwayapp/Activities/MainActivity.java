@@ -26,33 +26,9 @@ public class MainActivity extends BaseAuthenticatedActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        sharedPreferences=getSharedPreferences("loginInfo",MODE_PRIVATE);
-        final SharedPreferences.Editor editor=sharedPreferences.edit();
-        check=FirebaseDatabase.getInstance().getReference().child("User");
-        check.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                if(dataSnapshot.hasChild(mAuth.getCurrentUser().getUid()))
-                {
-                    editor.putBoolean("status",true);
-                    editor.apply();
-                }
-                else
-                {
-                    Toast.makeText(MainActivity.this,"not yet registered by user",Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
         findViewById(R.id.activity_main_complainbutton).setOnClickListener(this);
         findViewById(R.id.activity_main_statusbutton).setOnClickListener(this);
         findViewById(R.id.logoutbutton).setOnClickListener(this);
-        findViewById(R.id.activity_main_profilebutton).setOnClickListener(this);
 
 
 
@@ -84,20 +60,11 @@ public class MainActivity extends BaseAuthenticatedActivity implements View.OnCl
         if(viewId==R.id.logoutbutton)
         {
             application.getAuth().getUser().setLoggedIn(false);
-
-            SharedPreferences.Editor editor=sharedPreferences.edit();
-            editor.clear();
-            editor.commit();
             mAuth.signOut();
             Toast.makeText(this,"LogOutSuccessfull",Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this,LoginActivity.class));
 
             finish();
-        }
-        if(viewId==R.id.activity_main_profilebutton)
-        {
-            Intent i =new Intent(this,DetailActivity.class);
-            startActivity(i);
         }
     }
 

@@ -33,13 +33,7 @@
         android:text="Status"
         android:id="@+id/activity_main_statusbutton"
         />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="profile"
-        android:layout_marginTop="20dp"
-        android:id="@+id/activity_main_profilebutton"
-        />
+    
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
