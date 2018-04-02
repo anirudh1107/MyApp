@@ -18,9 +18,6 @@ import com.myapp.railwayapp.R;
 
 public class MainActivity extends BaseAuthenticatedActivity implements View.OnClickListener {
     private static final int COMPLAIN_REQUEST_CODE = 1;
-    private RelativeLayout complain_button;
-    private SharedPreferences sharedPreferences;
-    private DatabaseReference check;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,22 +37,13 @@ public class MainActivity extends BaseAuthenticatedActivity implements View.OnCl
 
         if(viewId==R.id.activity_main_complainbutton)
         {
-            if(sharedPreferences.getBoolean("status",false))
-            {
+
                 startActivityForResult(new Intent(this,ComplainActivity.class),COMPLAIN_REQUEST_CODE);
-            }
-            else
-                Toast.makeText(this,"You Are not registered user",Toast.LENGTH_SHORT).show();
         }
         if (viewId==R.id.activity_main_statusbutton)
         {
-            if(sharedPreferences.getBoolean("status",false))
-            {
                 Intent i=new Intent(this,complaint_listner.class);
                 startActivity(i);
-            }
-            else
-                Toast.makeText(this,"You Are not registered user",Toast.LENGTH_SHORT).show();
         }
         if(viewId==R.id.logoutbutton)
         {
