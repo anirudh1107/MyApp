@@ -67,6 +67,16 @@
         android:id="@+id/logoutbutton"
         />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Change Password"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/home_page_button_layout"
+            android:id="@+id/change_password_button"
+            />
+
+
 
     </LinearLayout>
     </ScrollView>

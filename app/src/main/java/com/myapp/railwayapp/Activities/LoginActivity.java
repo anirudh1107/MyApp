@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,12 +23,12 @@ import com.myapp.railwayapp.R;
 
 
 
-public class LoginActivity extends BaseActivity {
+public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
     private View progressBar;
     private TextInputLayout usernameWrapper;
     private TextInputLayout passwordWrapper;
-
+    private Button forgot;
     private SharedPreferences sharedPreferences;
     private DatabaseReference check;
     @Override
@@ -36,6 +37,8 @@ public class LoginActivity extends BaseActivity {
         setContentView(R.layout.activity_login);
         userName = (EditText) findViewById(R.id.login_activity_username);
         password = (EditText) findViewById(R.id.login_activity_password);
+        forgot=findViewById(R.id.forget);
+        forgot.setOnClickListener(this);
         usernameWrapper=findViewById(R.id.login_activity_username_wrapper);
         passwordWrapper=findViewById(R.id.login_activity_password_wrapper);
         usernameWrapper.setHint("ENTER USERNAME");
@@ -129,5 +132,14 @@ public class LoginActivity extends BaseActivity {
         super.onStop();
     }
 
+    @Override
+    public void onClick(View v) {
+        if(v==forgot)
+        {
+            Intent intent=new Intent(this,ForgotPassword.class);
+            startActivity(intent);
+            finish();
+        }
+    }
 }
 

@@ -33,7 +33,7 @@ public class MainActivity extends BaseAuthenticatedActivity implements View.OnCl
         findViewById(R.id.logoutbutton).setOnClickListener(this);
         findViewById(R.id.activity_main_profilebutton).setOnClickListener(this);
         findViewById(R.id.activity_main_feedback_button).setOnClickListener(this);
-
+        findViewById(R.id.change_password_button).setOnClickListener(this);
     }
     @Override
     public void onClick(View view) {
@@ -80,6 +80,11 @@ public class MainActivity extends BaseAuthenticatedActivity implements View.OnCl
         {
             Intent intent=new Intent(this,FeedbackActivity.class);
             startActivityForResult(intent,FEEDBACK_REQUEST);
+        }
+
+        if(viewId==R.id.change_password_button)
+        {
+            startActivity(new Intent(MainActivity.this,PasswordChange.class));
         }
     }
 
