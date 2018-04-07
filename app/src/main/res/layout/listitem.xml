@@ -1,182 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:id="@+id/list_item_wrap"
+    xmlns:apps="http://schemas.android.com/apk/res-auto"
+    apps:cardCornerRadius="20dp"
+    android:layout_margin="5dp"
+    apps:cardBackgroundColor="#CC78909C"
     >
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        >
 
-        <TextView
-            android:id="@+id/id"
-            android:layout_width="0dp"
-            android:gravity="center"
-            android:layout_height="wrap_content"
-            android:layout_weight=".8"
-            tools:text="545621"
-
-
-            />
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            tools:text="water leak"
-            android:layout_weight="1"
-            android:id="@+id/complaintype"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:textAlignment="center"
-            />
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            tools:text="pending"
-            android:layout_weight="1"
-            android:id="@+id/top_status"
-            android:textAlignment="center"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-            />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/on_tap"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="16dp"
-        android:visibility="visible"
+        android:id="@+id/list_item_wrap"
         >
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="complain id:"
-                />
-
-            <TextView
-                android:textStyle="bold"
-                android:layout_marginLeft="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/long_customer_id"
-                />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="complain type:"
-                />
-
-            <TextView
-                android:textStyle="bold"
-                android:layout_marginLeft="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/long_complain_type"
-                />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="complain SubType:"
-                />
-
-            <TextView
-                android:textStyle="bold"
-                android:layout_marginLeft="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/long_complain_Subtype"
-                />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:orientation="horizontal"
             >
+
             <TextView
+                android:id="@+id/id"
                 android:layout_width="0dp"
+                android:gravity="center"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="status:"
+                android:layout_weight=".8"
+                android:textColor="#FFF"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                tools:text="545621"
+
+
                 />
-
             <TextView
-                android:id="@+id/long_status"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                tools:text="water leak"
                 android:layout_weight="1"
-                android:gravity="bottom" />
-
-
-
-
+                android:id="@+id/complaintype"
+                android:textColor="#FFF"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textAlignment="center"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                tools:text="pending"
+                android:layout_weight="1"
+                android:id="@+id/top_status"
+                android:textAlignment="center"
+                android:textColor="#FFF"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="phone_number:"
-                />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/long_phone_number"
-                android:textAlignment="textStart"
-                android:gravity="start" />
-
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/image_view"
+            android:id="@+id/on_tap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_marginTop="16dp"
             android:visibility="gone"
             >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFF"
+                    android:text="complain id:"
+                    />
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFF"
+                    android:id="@+id/long_customer_id"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFF"
+                    android:text="complain type:"
+                    />
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFF"
+                    android:id="@+id/long_complain_type"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFF"
+                    android:text="complain SubType:"
+                    />
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFF"
+                    android:id="@+id/long_complain_Subtype"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFF"
+                    android:layout_weight="1"
+                    android:text="status:"
+                    />
+
+                <TextView
+                    android:id="@+id/long_status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFF"
+                    android:layout_weight="1"
+                    android:gravity="bottom" />
+
+
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFF"
+                    android:layout_weight="1"
+                    android:text="phone_number:"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/long_phone_number"
+                    android:textAlignment="textStart"
+                    android:textColor="#FFF"
+                    android:gravity="start" />
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/image_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                >
 
                 <ImageView
                     android:id="@+id/image_i"
@@ -188,17 +210,20 @@
 
 
 
+            </LinearLayout>
+
+
         </LinearLayout>
 
-
+        <Button
+            android:layout_width="wrap_content"
+            android:id="@+id/send_feedback_button"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Feedback"
+            android:layout_gravity="center"
+            />
     </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:id="@+id/send_feedback_button"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Feedback"
-        android:layout_gravity="center"
-        />
-</LinearLayout>
+
+</android.support.v7.widget.CardView>

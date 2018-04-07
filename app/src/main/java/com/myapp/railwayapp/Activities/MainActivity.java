@@ -45,6 +45,12 @@ public class MainActivity extends BaseAuthenticatedActivity implements View.OnCl
                 Intent i=new Intent(this,complaint_listner.class);
                 startActivity(i);
         }
+
+        if(viewId==R.id.change_password_button)
+        {
+            startActivity(new Intent(MainActivity.this,PasswordChange.class));
+        }
+        
         if(viewId==R.id.logoutbutton)
         {
             application.getAuth().getUser().setLoggedIn(false);
@@ -54,6 +60,7 @@ public class MainActivity extends BaseAuthenticatedActivity implements View.OnCl
 
             finish();
         }
+
     }
 
     @Override

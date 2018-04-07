@@ -84,6 +84,10 @@ public class LoginActivity extends BaseActivity {
         startActivity(new Intent(LoginActivity.this,registration.class));
     }
 
+    public void Fpass()
+    {
+        startActivity(new Intent(LoginActivity.this,ForgotPassword.class));
+    }
 
     @Override
     public void onStart() {
