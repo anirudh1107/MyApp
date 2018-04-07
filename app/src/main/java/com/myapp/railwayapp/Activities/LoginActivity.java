@@ -116,7 +116,7 @@ public class LoginActivity extends BaseActivity {
         startActivity(new Intent(LoginActivity.this,registration.class));
     }
 
-    public void Fpass()
+    public void Fpass(View v)
     {
         startActivity(new Intent(LoginActivity.this,ForgotPassword.class));
     }

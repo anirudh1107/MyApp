@@ -26,6 +26,7 @@ public class MainActivity extends BaseAuthenticatedActivity implements View.OnCl
         findViewById(R.id.activity_main_complainbutton).setOnClickListener(this);
         findViewById(R.id.activity_main_statusbutton).setOnClickListener(this);
         findViewById(R.id.logoutbutton).setOnClickListener(this);
+        findViewById(R.id.change_password_button).setOnClickListener(this);
 
 
 
