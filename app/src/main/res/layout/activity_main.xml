@@ -4,71 +4,131 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/indore_police_1975552_835x547"
     android:orientation="vertical"
     >
 
     <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="50dp"
     android:orientation="vertical"
     android:id="@+id/linear_layout_railwayimg">
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_railway" />
+
     </LinearLayout>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Complain"
-        android:background="@drawable/home_page_button_layout"
+        android:layout_height="75dp"
         android:layout_marginTop="30dp"
+        android:background="#DD69140E"
         android:id="@+id/activity_main_complainbutton"
-        />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/home_page_button_layout"
-        android:text="Status"
-        android:id="@+id/activity_main_statusbutton"
-        />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="profile"
-        android:background="@drawable/home_page_button_layout"
-        android:layout_marginTop="20dp"
-        android:id="@+id/activity_main_profilebutton"
-        />
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Feedback"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/home_page_button_layout"
-            android:id="@+id/activity_main_feedback_button"
-        />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="LogOut"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/home_page_button_layout"
-        android:id="@+id/logoutbutton"
-        />
-
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="match_parent"
+            android:textSize="15dp"
+            android:gravity="center"
+            android:textColor="#FFF"
+            android:text="COMPLAIN"
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:src="@drawable/ic_receipt_black_24dp"
+            />
 
     </LinearLayout>
-    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginTop="30dp"
+        android:id="@+id/activity_main_statusbutton"
+        android:orientation="horizontal"
+        android:background="#DDA44200"
+        android:layout_margin="20dp"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="match_parent"
+            android:textSize="15dp"
+            android:textColor="#FFF"
+            android:gravity="center"
+            android:text="STATUS"
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:src="@drawable/ic_assignment_turned_in_black_24dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginTop="30dp"
+        android:id="@+id/change_password_button"
+        android:orientation="horizontal"
+        android:background="#DDFFA726"
+        android:layout_margin="20dp"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="match_parent"
+            android:textSize="15dp"
+            android:gravity="center"
+            android:textColor="#FFF"
+            android:text="CHANGE PASSWORD"
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:src="@drawable/ic_vpn_lock_black_24dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginTop="30dp"
+        android:id="@+id/logoutbutton"
+        android:orientation="horizontal"
+        android:background="#DDFFA726"
+        android:layout_margin="20dp"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="match_parent"
+            android:textSize="15dp"
+            android:gravity="center"
+            android:textColor="#FFF"
+            android:text="LOGOUT"
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:src="@drawable/ic_priority_high_black_24dp"
+            />
+
+    </LinearLayout>
+
+
+
+
 
 </LinearLayout>

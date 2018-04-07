@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.myapp.railwayapp.Activities.registration">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="REGISTRATION"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:gravity="center"
+            />
+
+    </LinearLayout>
 
     <EditText
         android:id="@+id/newuser"
@@ -26,13 +43,69 @@
 
         />
 
-    <Button
-        android:id="@+id/add1"
+
+        <EditText
+            android:id="@+id/reg_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="100"
+            android:hint="NAME"
+            />
+
+
+
+        <EditText
+            android:id="@+id/reg_add"
+            android:layout_width="match_parent"
+            android:maxLength="200"
+            android:layout_height="wrap_content"
+            android:hint="ADDRESS"
+            />
+
+
+        <EditText
+            android:id="@+id/reg_mobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="10"
+            android:inputType="number"
+            android:hint="MOBILE"
+            />
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ADD"
-        android:layout_below="@id/pass"
+        android:padding="5dp"
+        >
 
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Locality :"
+            />
+        <Spinner
+            android:id="@+id/locality"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:entries="@array/locality"
+            android:layout_weight="2"
+            android:maxLength="10"
+            />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/reg_submit"
+        android:layout_margin="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SUBMIT"
+        android:layout_gravity="center"
         />
 
-</RelativeLayout>
+
+
+</LinearLayout>

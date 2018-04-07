@@ -18,21 +18,17 @@ import com.myapp.railwayapp.R;
 
 public class MainActivity extends BaseAuthenticatedActivity implements View.OnClickListener {
     private static final int COMPLAIN_REQUEST_CODE = 1;
-    private SharedPreferences sharedPreferences;
-    private static final int FEEDBACK_REQUEST = 132;
-    RelativeLayout complain_button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        sharedPreferences=getSharedPreferences("loginInfo",MODE_PRIVATE);
         findViewById(R.id.activity_main_complainbutton).setOnClickListener(this);
         findViewById(R.id.activity_main_statusbutton).setOnClickListener(this);
         findViewById(R.id.logoutbutton).setOnClickListener(this);
-        findViewById(R.id.activity_main_profilebutton).setOnClickListener(this);
-        findViewById(R.id.activity_main_feedback_button).setOnClickListener(this);
+
+
+
 
     }
     @Override
@@ -41,23 +37,20 @@ public class MainActivity extends BaseAuthenticatedActivity implements View.OnCl
 
         if(viewId==R.id.activity_main_complainbutton)
         {
-            if(sharedPreferences.getBoolean("status",false))
-            {
+
                 startActivityForResult(new Intent(this,ComplainActivity.class),COMPLAIN_REQUEST_CODE);
-            }
-            else
-                Toast.makeText(this,"You Are not registered user",Toast.LENGTH_SHORT).show();
         }
         if (viewId==R.id.activity_main_statusbutton)
         {
-            if(sharedPreferences.getBoolean("status",false))
-            {
                 Intent i=new Intent(this,complaint_listner.class);
                 startActivity(i);
-            }
-            else
-                Toast.makeText(this,"You Are not registered user",Toast.LENGTH_SHORT).show();
         }
+
+        if(viewId==R.id.change_password_button)
+        {
+            startActivity(new Intent(MainActivity.this,PasswordChange.class));
+        }
+
         if(viewId==R.id.logoutbutton)
         {
             application.getAuth().getUser().setLoggedIn(false);
@@ -71,16 +64,7 @@ public class MainActivity extends BaseAuthenticatedActivity implements View.OnCl
 
             finish();
         }
-        if(viewId==R.id.activity_main_profilebutton)
-        {
-            Intent i =new Intent(this,DetailActivity.class);
-            startActivity(i);
-        }
-        if(viewId==R.id.activity_main_feedback_button)
-        {
-            Intent intent=new Intent(this,FeedbackActivity.class);
-            startActivityForResult(intent,FEEDBACK_REQUEST);
-        }
+
     }
 
     @Override
@@ -99,18 +83,6 @@ public class MainActivity extends BaseAuthenticatedActivity implements View.OnCl
 
                     Toast.makeText(this,"Complain Submitted",Toast.LENGTH_SHORT).show();
                 }
-            }
-
-        }
-        if(requestCode==FEEDBACK_REQUEST)
-        {
-            if(resultCode==RESULT_OK)
-            {
-                Toast.makeText(this,"Feedback Successfully Submitted",Toast.LENGTH_SHORT).show();
-            }
-            else
-            {
-                Toast.makeText(this,"Feedback failed to submit",Toast.LENGTH_SHORT).show();
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
